@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.0">
+  <title>Bootstrap Offcanvas</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/Users/yuhanzhang/web project/offcanvas/css/jasny-bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/Users/yuhanzhang/web project/offcanvas/css/mystyle.css">
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+</head>
+<body>
+<nav id="myNavmenu" class="navmenu navmenu-default navmenu-fixed-left offcanvas" role="navigation">
+	<a class="navmenu-brand" href="http://www.uwo.ca"><img src="/Users/yuhanzhang/web project/offcanvas/img/western.gif" width="315" height="80"></a>
+	  <ul class="nav navmenu-nav">
+	   <li class="active"><a href="#">Home</a></li>
+	   <li><a href="#">My Program</a></li>
+	   <li><a href="#">Mailbox</a></li>
+	   <li><a href="#">Message</a></li>
+	  </ul>
+</nav>
+
+<div class="navbar navbar-default navbar-fixed-left">
+	<button id="mybutton" type="button" class="navbar-toggle" data-toggle="offcanvas" data-target="#myNavmenu" data-canvas="body" style="position:relative;">
+		<!--<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>-->
+		<span class="glyphicon glyphicon-th-list" aria-hidden="true" style="color:#ffffff;width:20px;"></span>
+	</button>
+	<div class="container whitegrey">
+	  <ul class="nav nav-pills">
+		  <li><a href="http://www.uwo.ca" style="font-size:18px;color:#ffffff;padding:15px;width:50px;margin-left:-14px;"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a><li>
+          <li class="dropdown">
+			  <a href="#" style="font-size:18px;color:#ffffff;padding:15px;" class="dropbtn">Faculties<span class="caret"></span></a>
+			  <div class="dropdown-content">
+				  <a href="http://www.eng.uwo.ca">Engineering</a>
+				  <a href="http://www.uwo.ca/arts/">Arts & Humanities</a>
+				  <a href="http://www.uwo.ca/sci/">Science</a>
+				  <a href="http://www.ssc.uwo.ca">Social Science</a>
+			  </div>
+		  </li>
+		  <li class="dropdown">
+			  <a href="#" style="font-size:18px;color:#ffffff;padding:15px;">Admission<span class="caret"></span></a>
+			  <div class="dropdown-content">
+				  <a href="http://welcome.uwo.ca">Undergraduate</a>
+				  <a href="http://grad.uwo.ca">Graduate</a>
+				  <a href="https://wcs.uwo.ca">Continue Learning</a>
+			  </div>
+		  </li>
+		  <li><a href="http://www.uwo.ca/research/" style="font-size:18px;color:#ffffff;padding:15px;">Research</a></li>
+		  <li><a style="font-size:18px;color:#ffffff;padding:15px;">
+			  <span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+	      </li>
+	  </ul>
+  </div>
+</div>
+<div>
+	<h1>Content...</h1>
+</div><br>
+<div>
+	<progress id="progressBar" value="0" max="100"></progress> 
+	<div id="progress-value" style="margin-left:146px;margin-top:-23px;"></div>
+</div>
+<script>
+      window.onload = function(){
+		   var progressbar = $('#progressBar'),
+		      max = progressbar.attr('max'),
+		      value = progressbar.val(),
+			  time = (200/max)*5;
+			 var loading = function(){
+				value += 1;
+			    addValue = progressbar.val(value);
+			
+			    $('#progress-value').html(value+'%');
+			    if(value == max)
+			    {
+					clearInterval(animate);
+			    }	
+			 };
+			 
+			 var animate = setInterval(function(){
+				 loading();
+		     },time);
+		 };
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/Users/yuhanzhang/web project/offcanvas/js/jasny-bootstrap.min.js"></script>
+</body>
+</html>
